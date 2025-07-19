@@ -8,6 +8,8 @@ function handleEvent(event){
         setStatus(event);
     }else if(event.target.classList.contains("removeTask")){
         removeTask(event);
+    }else{
+        display.showTask(event);
     }
 }
 

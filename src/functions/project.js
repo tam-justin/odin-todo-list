@@ -20,6 +20,10 @@ class Project {
         return this.#id;
     }
 
+    addTask(task){
+        this.taskList.push(task);
+    }
+
     getTaskList(){
         return this.taskList;
     }

@@ -2,6 +2,7 @@ import {curProject, handleProjectEvent} from "../index.js";
 import {projects} from "./initialLoad.js";
 import handleCardEvent from "./cardEvent.js";
 import {format} from "date-fns";
+import {taskDialog} from "./taskDialog.js";
 
 /**
  * functions to update changes to the display!
@@ -76,6 +77,11 @@ const display = (function displayController(){
                 priority.classList.add('low-prio');
             }
 
+            if(taskList[i].getStatus()){
+                card.classList.add("complete");
+                checkbox.checked = true;
+            }
+
             taskInfo.appendChild(title_desc);
             taskInfo.appendChild(dd_prio);
 
@@ -141,8 +147,15 @@ const display = (function displayController(){
         event.currentTarget.remove();
     }
 
-    const showTask = () => {
+    function showTask(event){
+        console.log(`Now showing task with ID ${event.currentTarget.id}`);
 
+        let taskList = curProject.getTaskList();
+        for(let i = 0; i < taskList.length; i++){
+            if(event.currentTarget.id == taskList[i].getID()){
+                taskDialog(taskList[i]);
+            }
+        }
     }
 
     return {

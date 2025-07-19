@@ -1,8 +1,9 @@
-import add from "./addDialog.js";
+import {setup, newTaskForm} from "./addDialog.js";
 import Project from "./project.js";
 import Task from "./task.js";
 import display from "./display.js";
-import {format, parse} from "date-fns";
+import {parse} from "date-fns";
+import {setupTaskDialog} from "./taskDialog.js"
 
 export let projects = [];
 
@@ -18,15 +19,19 @@ function load(){
 
     //Add Listener for Add Button
     const addButton = document.querySelector("#addButton");
-    addButton.addEventListener("click", add);
+    addButton.addEventListener("click", newTaskForm);
 
     //Create Starter Task
-    const starterTask = new Task("Starter Task", "This is a starter task to show you how this webpage works! To complete this task, you should mark it as complete!", parse('12/31/2025', "MM/dd/yyyy", new Date()), "High");
+    const starterTask = new Task("Starter Task", "This is a starter task to show you how this webpage works! To complete this task, you should mark it as complete!", parse('12/31/2025', "MM/dd/yyyy", new Date()), "High", "This is the notes section of this task! You can add any extra information here.", def);
     def.taskList.push(starterTask);
 
     //Update display.
     display.displayTasks();
     display.displayProjects();
+
+    //Setup add form.
+    setup();
+    setupTaskDialog();
 }
 
 export default load;

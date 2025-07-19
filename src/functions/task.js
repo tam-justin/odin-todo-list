@@ -1,3 +1,5 @@
+import { projects } from "./initialLoad";
+
 class Task {
     // Instance Variables
     #title;
@@ -6,17 +8,18 @@ class Task {
     #priority;
     #notes;
     #id;
-    #checklist;
+    #project;
     #completeStatus;
 
     // Constructor
-    constructor(title, desc, dd, prio, notes, checklist){
+    constructor(title, desc, dd, prio, notes, project){
         this.#title = title;
         this.#desc  = desc;
         this.#dueDate = dd;
         this.#priority = prio;
         this.#notes = notes;
-        this.#checklist = checklist;
+        this.#project = project;
+        this.#completeStatus = false;
         this.#id = crypto.randomUUID();
     }
 
@@ -41,8 +44,16 @@ class Task {
         return this.#notes;
     }
 
-    getChecklist(){
-        return this.#notes;
+    getStatus(){
+        return this.#completeStatus;
+    }
+
+    getProject(){
+        return this.#project;
+    }
+
+    getID(){
+        return this.#id;
     }
 
     // Setters
@@ -66,10 +77,6 @@ class Task {
         this.#notes = newNotes;
     }
 
-    setChecklist(newChecklist){
-        this.#checklist = newChecklist;
-    }
-
     markComplete(){
         this.#completeStatus = true;
     }
@@ -78,8 +85,8 @@ class Task {
         this.#completeStatus = false;
     }
 
-    getID(){
-        return this.#id;
+    setProject(newProject){
+        this.#project = newProject;
     }
 }
 

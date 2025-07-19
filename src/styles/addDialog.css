@@ -9,6 +9,10 @@
     grid-template-columns: 1fr 4fr;
 }
 
+#add-dialog:not([open]){
+    display: none;
+}
+
 #form-header {
     color: var(--font-color);
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
@@ -32,7 +36,7 @@
 }
 
 #form-close:hover {
-    color: var(--selected-color);
+    color: red;
     transform: scale(1.1) rotate(90deg);
 }
 
@@ -44,4 +48,127 @@
     border-right: 2px solid gray;
     display: flex;
     flex-direction: column;
+    user-select: none;
+}
+
+#form-nav {
+    display: flex;
+    padding-top: 20px;
+    align-items: start;
+    gap: .5rem;
+    flex-direction: column;
+    flex-grow: 1;
+    color: var(--font-color);
+}
+
+#form-nav button {
+    all: unset;
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+    font-size: 1.5rem;
+}
+
+#form-nav button:hover {
+    transform: scale(1.1);
+    color: var(--selected-color);
+}
+
+#form-nav .active {
+    transform: scale(1.1);
+    color: var(--selected-color);
+}
+
+#form-area {
+    grid-row: 2/2;
+    grid-column: 2/3;
+    padding: .5rem;
+    overflow-y: scroll;
+}
+
+#add-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+#add-form input[type="text"] {
+    all: unset;
+    background-color: white;
+    border: 2px solid black;
+    padding: .5rem;
+}
+
+#add-form label {
+    font-size: 1.5rem;
+}
+
+#add-form textarea {
+    all: unset;
+    background-color: white;
+    border: 2px solid black;
+    padding: .5rem;
+    resize: none;
+}
+
+#add-form select {
+    all: unset;
+    background-color: white;
+    border: 2px solid black;
+    padding: .5rem;
+    user-select: none;
+}
+
+#form-due-prio-sec {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+}
+
+#form-priority {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .1rem;
+}
+
+#form-date-sec {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .1rem;
+}
+
+#taskDate {
+    all: unset;
+    background-color: white;
+    border: 2px solid black;
+    padding: .5rem;
+    user-select: none;
+}
+
+#add-task, #add-project{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: white;
+    align-self: flex-end;
+    font-size: 1.2rem;
+    padding: .5rem;
+    border-radius: 13px;
+    box-shadow: 2px 4px 3px rgba(0, 0, 0, .5);
+    border: 2px solid black;
+    user-select: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#add-task:hover, #add-project:hover {
+    transform: scale(1.1);
+}
+
+#add-project {
+    position: absolute;
+    bottom: 20px;
 }

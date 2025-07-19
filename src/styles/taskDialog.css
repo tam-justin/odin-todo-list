@@ -1,0 +1,101 @@
+#task-dialog {
+    background-color: var(--controller-color);
+    height: 60%;
+    width: 65%;
+    border-radius: 5px;
+    box-shadow: 4px 12px 12px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: 1rem;
+}
+
+#task-dialog:not([open]){
+    display: none;
+}
+
+#task-dialog-header {
+    color: var(--font-color);
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+    font-size: 3rem;
+    border-bottom: 2px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+#task-dialog-close {
+    all: unset;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    font-size: 2.5rem;
+}
+
+#task-dialog-close:hover {
+    color: red;
+    transform: scale(1.1) rotate(90deg);
+}
+
+#task-dialog-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: .5rem;
+    padding-right: 1rem;
+    padding-bottom: .5rem;
+    gap: .5rem;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+#task-dialog input[type="text"] {
+    all: unset;
+    border-bottom: 2px solid black;
+    padding: .5rem;
+    font-size: 2rem;
+}
+
+#task-dialog textarea {
+    all: unset;
+    border: 2px solid black;
+    padding: .5rem;
+    resize: none;
+    font-size: 1.3rem;
+}
+
+#task-dialog select {
+    all: unset;
+    background-color: white;
+    border: 2px solid black;
+    padding: .5rem;
+    user-select: none;
+}
+
+#task-dialog input[type = "date"] {
+    all: unset;
+    background-color: white;
+    border: 2px solid black;
+    padding: .5rem;
+}
+
+#saveButton {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: white;
+    align-self: flex-end;
+    font-size: 1.2rem;
+    padding: .5rem;
+    margin: 2px;
+    border-radius: 13px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+    border: 2px solid black;
+    user-select: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#saveButton:hover {
+    transform: scale(1.1);
+}
