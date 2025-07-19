@@ -7,30 +7,34 @@ function add(){
     
     //Create the dialog element.
     const dialog = document.createElement("dialog");
+    dialog.id = "add-dialog";
 
-    //Setup a form.
-    const form = document.createElement("form");
-
-    const closeBtn = document.createElement("button");
-    closeBtn.type = "submit";
-    closeBtn.innerHTML = "X";
-    
+    //Create a header area.
     const header = document.createElement("div");
     header.id = "form-header";
 
+    const title = document.createElement("div");
+    title.id = "form-title";
+    title.innerHTML = "Add new...";
+    header.appendChild(title);
+
+    //Add a close button.
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.innerHTML = "X";
+    closeBtn.id = "form-close";
     header.appendChild(closeBtn);
 
+    //Create a sidebar.
     const sidebar = document.createElement("div");
     sidebar.id = "form-sidebar";
 
-    const taskBtn = document.createElement("button");
-    taskBtn.classList.add("navBtn");
-    taskBtn.innerHTML = "Task";
+    
 
-    const projectBtn = document.createElement("button");
-
-    form.appendChild(header);
-    dialog.appendChild(form);
+    //Add to the dialog the header, sidebar, and form area.
+    dialog.appendChild(header);
+    dialog.appendChild(sidebar);
+    
     wrapper.appendChild(dialog);
     dialog.showModal();
 }

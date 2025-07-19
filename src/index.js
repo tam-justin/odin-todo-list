@@ -7,6 +7,7 @@
  */
 import "./styles/default.css";
 import "./styles/task.css";
+import "./styles/addDialog.css";
 
 /**
  * Imported Functions
