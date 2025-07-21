@@ -91,6 +91,7 @@ export function newTaskForm(){
     nameInput.type = "text";
     nameInput.id = "taskName";
     nameInput.name = "taskName";
+    nameInput.required = true;
 
     const descLabel = document.createElement("label");
     descLabel.innerHTML = "Enter a description of your task:";
@@ -220,6 +221,7 @@ function newProjectForm(){
     nameInput.type = "text";
     nameInput.id = "projectName";
     nameInput.name = "projectName";
+    nameInput.required = true;
 
     formArea.appendChild(form);
     form.appendChild(nameLabel);
