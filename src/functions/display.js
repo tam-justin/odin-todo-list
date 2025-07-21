@@ -63,7 +63,7 @@ const display = (function displayController(){
 
             const dueDate = document.createElement("div");
             dueDate.classList.add("task-due-date");
-            dueDate.innerHTML = format(taskList[i].getDueDate(), 'MM/dd/yy');
+            dueDate.innerHTML = (taskList[i].getDueDate() == "" ? "" : format(taskList[i].getDueDate(), 'MM/dd/yy'));
 
             const priority = document.createElement("div");
             priority.classList.add("task-priority");

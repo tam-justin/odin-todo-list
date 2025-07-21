@@ -111,7 +111,7 @@ export function newTaskForm(){
 
     for(let i = 0; i < projects.length; i++){
         const option = document.createElement("option");
-        option.value = projects[i].getTitle();
+        option.value = projects[i].getID();
         option.innerHTML = projects[i].getTitle();
         projInput.appendChild(option);
     }
