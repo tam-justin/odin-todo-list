@@ -1,6 +1,5 @@
-import { projects } from "./initialLoad";
+import { populateStorage, projects } from "./initialLoad";
 import {format, parse} from "date-fns";
-import {curProject} from "../index.js";
 import display from "./display";
 
 /**
@@ -140,6 +139,8 @@ export function taskDialog(task){
 
         display.displayTasks();
         dialog.close();
+
+        populateStorage();
     });
     
     content.appendChild(name);

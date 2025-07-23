@@ -1,92 +1,101 @@
-import { projects } from "./initialLoad";
-
 class Task {
     // Instance Variables
-    #title;
-    #desc;
-    #dueDate;
-    #priority;
-    #notes;
-    #id;
-    #project;
-    #completeStatus;
+    title;
+    desc;
+    dueDate;
+    priority;
+    notes;
+    id;
+    project;
+    completeStatus;
 
     // Constructor
     constructor(title, desc, dd, prio, notes, project){
-        this.#title = title;
-        this.#desc  = desc;
-        this.#dueDate = dd;
-        this.#priority = prio;
-        this.#notes = notes;
-        this.#project = project;
-        this.#completeStatus = false;
-        this.#id = crypto.randomUUID();
+        this.title = title;
+        this.desc  = desc;
+        this.dueDate = dd;
+        this.priority = prio;
+        this.notes = notes;
+        this.project = project;
+        this.completeStatus = false;
+        this.id = crypto.randomUUID();
+    }
+
+    toSerializable(){
+        return {
+            title: this.title,
+            desc: this.desc,
+            dueDate: this.dueDate,
+            priority: this.priority,
+            notes: this.notes,
+            completeStatus: this.completeStatus
+        }
     }
 
     // Getters
     getTitle(){
-        return this.#title;
+        return this.title;
     }
 
     getDesc(){
-        return this.#desc;
+        return this.desc;
     }
 
     getDueDate(){
-        return this.#dueDate;
+        return this.dueDate;
     }
 
     getPriority(){
-        return this.#priority;
+        return this.priority;
     }
 
     getNotes(){
-        return this.#notes;
+        return this.notes;
     }
 
     getStatus(){
-        return this.#completeStatus;
+        return this.completeStatus;
     }
 
     getProject(){
-        return this.#project;
+        return this.project;
     }
 
     getID(){
-        return this.#id;
+        return this.id;
     }
 
     // Setters
     setTitle(newTitle){
-        this.#title = newTitle; 
+        this.title = newTitle; 
     }
 
     setDesc(newDesc){
-        this.#desc = newDesc;
+        this.desc = newDesc;
     }
 
     setDueDate(newDD){
-        this.#dueDate = newDD;
+        this.dueDate = newDD;
     }
 
     setPriority(newPrio){
-        this.#priority = newPrio;
+        this.priority = newPrio;
     }
 
     setNotes(newNotes){
-        this.#notes = newNotes;
+        this.notes = newNotes;
     }
 
     markComplete(){
-        this.#completeStatus = true;
+        this.completeStatus = true;
     }
 
     markUncomplete(){
-        this.#completeStatus = false;
+        this.completeStatus = false;
     }
 
     setProject(newProject){
-        this.#project = newProject;
+        this.project = newProject;
     }
 }
 

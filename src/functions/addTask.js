@@ -1,5 +1,5 @@
 import display from "./display.js";
-import {projects} from "./initialLoad.js";
+import {projects, populateStorage} from "./initialLoad.js";
 import Task from "./task.js";
 import {forma, parse} from "date-fns";
 
@@ -32,6 +32,8 @@ function addTask(){
 
     const dialog = document.querySelector("#add-dialog");
     dialog.close();
+
+    populateStorage();
 }
 
 export default addTask;

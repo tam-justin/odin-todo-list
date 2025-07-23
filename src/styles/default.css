@@ -132,3 +132,11 @@ body {
     grid-row: 2/3;
     grid-column: 2/3;
 }
+
+#warning {
+    color: red;
+    font-size: 1.2rem;
+    margin: 2px;
+    user-select: none;
+    text-align: center;
+}

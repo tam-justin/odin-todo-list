@@ -158,11 +158,21 @@ const display = (function displayController(){
         }
     }
 
+    function showStorageWarning(){
+        const sidebar = document.querySelector("#sidebar");
+        const warning = document.createElement("div");
+        const addButton = document.querySelector("#addButton");
+        warning.id = "warning";
+        warning.innerHTML = "Your browser does not support localStorage. Tasks/Projects will not be saved.";
+        sidebar.insertBefore(warning, addButton);
+    }
+
     return {
         displayTasks,
         updateActive,
         removeProjectButton,
         displayProjects,
+        showStorageWarning,
         showTask
     }
 })();

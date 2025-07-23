@@ -1,5 +1,6 @@
 import {curProject} from "../index.js";
 import display from "./display.js";
+import { populateStorage } from "./initialLoad.js";
 
 function handleEvent(event){
     console.log(`A card with ID ${event.currentTarget.id} was clicked!`);
@@ -22,6 +23,8 @@ function removeTask(event){
         taskList.splice(index, 1);
     }
 
+    populateStorage();
+
     display.displayTasks();
 }
 
@@ -41,6 +44,8 @@ function setStatus(event){
             }
         }
     }
+
+    populateStorage();
 }
 
 export default handleEvent;

@@ -13,12 +13,15 @@ import "./styles/taskDialog.css";
 /**
  * Imported Functions
  */
-import initialLoad from "./functions/initialLoad.js";
-import {def, projects} from "./functions/initialLoad.js";
-import Project from "./functions/project.js";
+import initialLoad, { populateStorage } from "./functions/initialLoad.js";
+import {def, projects, firstLoad} from "./functions/initialLoad.js";
 import display from "./functions/display.js";
 
 export let curProject = def;
+
+export function setCurProject(newCurrent){
+    curProject = newCurrent;
+}
 
 export function handleProjectEvent(event){
     if(event.target.classList.contains("navBtn")){
@@ -63,9 +66,20 @@ function removeProject(event){
         }
     }
 
+    populateStorage();
+
     display.displayTasks();
     display.displayProjects();
 }
 
-projects.push(new Project("Default"));
 initialLoad();
+
+if(!firstLoad){
+    if(projects.length > 0){
+        curProject = projects[0];
+        display.updateActive("def", curProject.getID());
+    }
+}
+
+display.displayProjects();
+display.displayTasks();

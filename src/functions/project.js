@@ -1,23 +1,30 @@
 class Project {
-    #name;
-    #id;
+    name;
+    id;
     taskList = [];
 
     constructor(name){
-        this.#name = name;
-        this.#id = crypto.randomUUID();
+        this.name = name;
+        this.id = crypto.randomUUID();
+    }
+
+    toSerializable() {
+        return {
+            name: this.name,
+            taskList: this.taskList.map(task => task.toSerializable())
+        }
     }
 
     setTitle(newTitle){
-        this.#name = newTitle;
+        this.name = newTitle;
     }
 
     getTitle(){
-        return this.#name;
+        return this.name;
     }
 
     getID(){
-        return this.#id;
+        return this.id;
     }
 
     addTask(task){
@@ -26,6 +33,10 @@ class Project {
 
     getTaskList(){
         return this.taskList;
+    }
+
+    setTaskList(newTaskList){
+        this.taskList = newTaskList;
     }
 }
 
